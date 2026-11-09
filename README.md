@@ -2,125 +2,70 @@
 
 Agent Skill для философских обсуждений на русском языке: глубокого разбора проблем, концепций и аргументов, сравнения позиций и анализа возражений.
 
-Исходник скилла: [`skills/philosophy-discussion/SKILL.md`](skills/philosophy-discussion/SKILL.md). Пакет содержит только инструкции и не включает исполняемый код, hooks или MCP-серверы.
+Исходник: [`skills/philosophy-discussion/SKILL.md`](skills/philosophy-discussion/SKILL.md). Скилл содержит только инструкции, без исполняемого кода, hooks и MCP-серверов.
 
-## Установка через AI-агента
+## Установка в Kimi, Claude и ChatGPT
 
-Если ваш агент умеет работать с Git и файловой системой, отправьте ему этот промпт:
-
-```text
-Установи Agent Skill из https://github.com/qetzal/philosophy-discussion-ru.
-
-Склонируй репозиторий во временный каталог и проверь skills/philosophy-discussion/SKILL.md. Не выполняй никакие программы или скрипты из репозитория. Скопируй каталог skills/philosophy-discussion в поддерживаемый тобой пользовательский каталог скиллов, предпочтительно ~/.agents/skills/philosophy-discussion. Не перезаписывай существующую установку без моего подтверждения.
-
-После установки проверь наличие SKILL.md и обнаружение скилла, сообщи фактический путь и способ вызова. Если твоя среда не поддерживает постоянную установку, прямо скажи об этом и предложи ручной вариант. Не сообщай об успешной установке без проверки.
-```
-
-## Claude
-
-Отправьте Claude промпт:
+В большинстве случаев достаточно отправить агенту этот промпт:
 
 ```text
-Установи плагин philosophy-discussion из GitHub-репозитория:
+Установи скилл philosophy-discussion из репозитория:
 https://github.com/qetzal/philosophy-discussion-ru
 
-Если установка плагина недоступна, создай пользовательский скилл из файла skills/philosophy-discussion/SKILL.md этого репозитория. Используй его содержимое без сокращений, переписывания и адаптации. Если какая-то адаптация необходима, сначала покажи мне предлагаемые изменения и дождись подтверждения.
+Используй файл skills/philosophy-discussion/SKILL.md без изменений. Если прямая установка по ссылке недоступна, создай скилл через встроенный механизм создания скиллов и предложи мне установить результат. Если содержимое нужно изменить, сначала покажи мне diff и дождись подтверждения.
 
-После установки подтверди, что скилл появился в моём списке, и покажи его название. Если ты не смог открыть репозиторий или реально установить скилл, прямо скажи об этом — не имитируй успешную установку.
+После установки проверь, что скилл появился в списке доступных, и скажи, как его вызвать. Если ты не можешь открыть ссылку или действительно установить скилл, прямо скажи об этом — не имитируй успешную установку.
 ```
 
-Доступность создания и загрузки скиллов зависит от тарифа и настроек организации. Управление установленными скиллами находится в **Customize → Skills**.
+Тот же промпт подходит большинству других агентов. Доступность Skills зависит от конкретного продукта, тарифа и настроек workspace.
 
-## ChatGPT
+## Ручная установка для агентов с `.agents/skills`
 
-Отправьте ChatGPT промпт:
+Этот вариант подходит **только для агентов, которые поддерживают общий каталог `~/.agents/skills/`**.
 
-```text
-Создай и установи скилл philosophy-discussion на основе готового исходника из GitHub:
-https://github.com/qetzal/philosophy-discussion-ru
+1. Создайте каталог `~/.agents/skills/philosophy-discussion/`.
+2. Скачайте [`SKILL.md`](https://raw.githubusercontent.com/qetzal/philosophy-discussion-ru/main/skills/philosophy-discussion/SKILL.md) и положите его в этот каталог.
+3. Перезапустите агента или выполните его команду перезагрузки.
+4. Проверьте, что `philosophy-discussion` появился в списке скиллов.
 
-Используй файл skills/philosophy-discussion/SKILL.md. Не переписывай, не сокращай и не адаптируй его содержимое. Если платформа требует изменений, сначала покажи мне diff и дождись подтверждения.
+То же самое двумя командами в macOS или Linux:
 
-После создания предложи установить скилл и подтверди, что он появился в разделе Skills. Если ты не можешь открыть GitHub или завершить установку, прямо скажи об этом.
+```bash
+mkdir -p ~/.agents/skills/philosophy-discussion
+curl -fL https://raw.githubusercontent.com/qetzal/philosophy-discussion-ru/main/skills/philosophy-discussion/SKILL.md \
+  -o ~/.agents/skills/philosophy-discussion/SKILL.md
 ```
 
-ChatGPT использует для такого сценария **Create with chat**. Skills доступны в поддерживаемых Business, Enterprise, Healthcare и Edu workspace; доступ зависит от настроек администратора и продукта.
+Если агент не поддерживает `.agents/skills`, используйте промпт выше или инструкцию самого агента.
 
-## Нативная установка в coding agents
+## Kimi Code, Claude Code и Codex
 
-| Среда | Способ установки |
-| --- | --- |
-| Kimi Code | `/plugins install https://github.com/qetzal/philosophy-discussion-ru` |
-| Claude Code | Установка плагина из GitHub marketplace репозитория |
-| Codex CLI / Desktop | Добавление репозитория как пользовательского marketplace |
+Для них тоже можно использовать универсальный промпт. Ниже — только нативные варианты установки.
 
 ### Kimi Code
-
-Выполните:
 
 ```text
 /plugins install https://github.com/qetzal/philosophy-discussion-ru
 ```
 
-Затем перезапустите сессию или выполните `/reload`. После установки скилл доступен под namespaced-именем:
-
-```text
-/skill:philosophy-discussion:philosophy-discussion
-```
-
-Для обновления повторите установку. Для удаления используйте `/plugins remove philosophy-discussion`.
+После установки выполните `/reload` или начните новую сессию.
 
 ### Claude Code
-
-Попробуйте установку одной командой:
-
-```text
-/plugin install philosophy-discussion --marketplace qetzal/philosophy-discussion-ru
-```
-
-Если используемая версия Claude Code не поддерживает одношаговую установку, добавьте marketplace и установите плагин отдельно:
 
 ```text
 /plugin marketplace add qetzal/philosophy-discussion-ru
 /plugin install philosophy-discussion@philosophy-discussion-ru
 ```
 
-Обновление, отключение и удаление доступны через команду `/plugin`.
+После этого управляйте плагином через `/plugin`.
 
 ### Codex
 
-В Codex CLI или Desktop откройте интерфейс плагинов и добавьте этот репозиторий как пользовательский marketplace. Затем установите плагин `philosophy-discussion`.
+В Codex CLI или Desktop добавьте репозиторий как пользовательский marketplace и установите плагин `philosophy-discussion`. Если интерфейс запрашивает локальный путь, склонируйте репозиторий и укажите его каталог. Codex IDE extension плагины не поддерживает.
 
-Если текущая версия Codex запрашивает локальный путь, сначала склонируйте репозиторий:
+## Совместимость
 
-```bash
-git clone https://github.com/qetzal/philosophy-discussion-ru.git
-```
-
-После этого укажите локальный каталог репозитория при добавлении marketplace. Codex поддерживает Claude-compatible marketplace и Agent Plugins 1.0; необходимые манифесты находятся в этом репозитории. Codex IDE extension плагины не поддерживает.
-
-## Ручная установка
-
-Если агент поддерживает общий пользовательский каталог `~/.agents/skills/`:
-
-```bash
-git clone --depth 1 https://github.com/qetzal/philosophy-discussion-ru.git
-mkdir -p ~/.agents/skills
-
-# Копирование выполнится, только если предыдущей установки нет.
-test ! -e ~/.agents/skills/philosophy-discussion && \
-  cp -R philosophy-discussion-ru/skills/philosophy-discussion ~/.agents/skills/
-```
-
-Если каталог уже существует, копирование не выполняется. Для агентов с другим каталогом скиллов используйте путь из их документации.
-
-Для обновления сохраните свои изменения, если они есть, замените каталог новой версией и перезапустите агента. Для удаления удалите каталог `philosophy-discussion` из соответствующего каталога скиллов.
-
-## Совместимость и проверка
-
-Репозиторий использует открытые форматы Agent Skills и Agent Plugins 1.0, а также манифесты для Kimi Code и Claude-compatible marketplaces. При изменении репозитория проверяйте frontmatter, JSON-манифесты, схему Agent Plugins и ссылки на файлы.
-
-Фактическая установка зависит от версии клиента, тарифа, разрешений среды и настроек workspace. Поддержка манифеста не означает, что каждый клиент был проверен во всех версиях.
+Репозиторий использует Agent Skills и Agent Plugins 1.0, а также манифесты для Kimi Code и Claude-compatible marketplaces. Поддержка конкретного способа установки зависит от версии клиента и его настроек.
 
 ## Лицензия
 
