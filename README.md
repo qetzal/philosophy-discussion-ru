@@ -56,22 +56,43 @@ curl -fL https://raw.githubusercontent.com/qetzal/philosophy-discussion-ru/main/
 
 ```text
 /plugins install https://github.com/qetzal/philosophy-discussion-ru
+/reload
 ```
 
-После установки выполните `/reload` или начните новую сессию.
+Проверка: `/plugins list`. Явный вызов: `/skill:philosophy-discussion:philosophy-discussion`.
+
+Kimi устанавливает последний release, если он есть, иначе ветку по умолчанию. После обновления повторите установку и `/reload`.
 
 ### Claude Code
+
+В интерактивной сессии:
 
 ```text
 /plugin marketplace add qetzal/philosophy-discussion-ru
 /plugin install philosophy-discussion@philosophy-discussion-ru
 ```
 
-После этого управляйте плагином через `/plugin`.
+То же самое из терминала:
+
+```bash
+claude plugin marketplace add qetzal/philosophy-discussion-ru
+claude plugin install philosophy-discussion@philosophy-discussion-ru
+claude plugin list
+```
+
+Если клиент попросит применить изменения, выполните `/reload-plugins` или начните новую сессию. Явный вызов: `/philosophy-discussion:philosophy-discussion` (короткий `/philosophy-discussion` тоже работает, если имя не занято).
 
 ### Codex
 
-В Codex CLI или Desktop добавьте репозиторий как пользовательский marketplace и установите плагин `philosophy-discussion`. Если интерфейс запрашивает локальный путь, склонируйте репозиторий и укажите его каталог. Codex IDE extension плагины не поддерживает.
+В Codex CLI:
+
+```bash
+codex plugin marketplace add qetzal/philosophy-discussion-ru
+codex plugin add philosophy-discussion@philosophy-discussion-ru
+codex plugin list
+```
+
+Codex читает тот же `.claude-plugin/marketplace.json`, что и Claude Code. Скилл подхватывается автоматически; явный синтаксис вызова зависит от версии Codex. В Desktop те же marketplace и plugin подключаются через интерфейс, если плагины доступны в вашей версии.
 
 ## Обновление и удаление
 
