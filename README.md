@@ -14,7 +14,7 @@ Agent Skill для философских обсуждений на русско
 
 Скилл должен активироваться автоматически. Если интерфейс поддерживает явный вызов скиллов, выберите `philosophy-discussion`.
 
-## Установка в Kimi, Claude и ChatGPT и других AI агентах
+## Установка в Kimi, Claude, Codex и других AI агентах
 
 В большинстве случаев достаточно отправить агенту этот промпт:
 
@@ -22,12 +22,14 @@ Agent Skill для философских обсуждений на русско
 Установи скилл philosophy-discussion из репозитория:
 https://github.com/qetzal/philosophy-discussion-ru
 
-Используй файл skills/philosophy-discussion/SKILL.md без изменений. Если прямая установка по ссылке недоступна, создай скилл через встроенный механизм создания скиллов и предложи мне установить результат. Если содержимое нужно изменить, сначала покажи мне diff и дождись подтверждения.
+Используй файл skills/philosophy-discussion/SKILL.md без изменений. Если клиент не поддерживает установку скилла из файла, скажи об этом прямо. Если содержимое нужно изменить, сначала покажи мне diff и дождись подтверждения.
 
 После установки проверь, что скилл появился в списке доступных, и скажи, как его вызвать. Если ты не можешь открыть ссылку или действительно установить скилл, прямо скажи об этом — не имитируй успешную установку.
 ```
 
 Тот же промпт подходит большинству других агентов. Доступность Skills зависит от конкретного продукта, тарифа и настроек workspace.
+
+ChatGPT работает иначе: он не устанавливает произвольный skill из репозитория по промпту. Там нужна загрузка ZIP через Plugins → Skills → Upload from your computer или импорт marketplace администратором workspace. Доступность зависит от тарифа и прав.
 
 ## Ручная установка для агентов с `.agents/skills`
 
@@ -94,11 +96,20 @@ codex plugin list
 
 Codex читает тот же `.claude-plugin/marketplace.json`, что и Claude Code. Скилл подхватывается автоматически; явный синтаксис вызова зависит от версии Codex. В Desktop те же marketplace и plugin подключаются через интерфейс, если плагины доступны в вашей версии.
 
-## Обновление и удаление
+## Версии и обновление
 
-Для обновления попросите агента: «Обнови `philosophy-discussion` из исходного репозитория. Перед перезаписью покажи изменения».
+`main` — последняя версия, GitHub Releases — стабильные снимки. Изменения `SKILL.md` или манифестов выходят с новой версией и тегом; правки README и CI могут идти без релиза.
 
-Удалить скилл можно через интерфейс управления скиллами или плагинами вашего продукта. При ручной установке достаточно удалить каталог `~/.agents/skills/philosophy-discussion/`.
+Kimi Code ставит последний release. Claude Code и Codex читают `main`; если нужна фиксированная версия, укажите тег: `qetzal/philosophy-discussion-ru@v1.0.0` для Claude Code или `--ref v1.0.0` для Codex.
+
+| Клиент | Обновление | Удаление |
+| --- | --- | --- |
+| Kimi Code | повторить `/plugins install https://github.com/qetzal/philosophy-discussion-ru`, затем `/reload` | `/plugins remove philosophy-discussion` |
+| Claude Code | `claude plugin marketplace update philosophy-discussion-ru`, затем `claude plugin update philosophy-discussion@philosophy-discussion-ru` | `claude plugin uninstall philosophy-discussion@philosophy-discussion-ru` |
+| Codex | `codex plugin marketplace upgrade`, затем `codex plugin add philosophy-discussion@philosophy-discussion-ru` | `codex plugin remove philosophy-discussion@philosophy-discussion-ru` |
+| Вручную | снова скачать `SKILL.md` | удалить каталог `~/.agents/skills/philosophy-discussion/` |
+
+После обновления начните новую сессию клиента.
 
 ## Лицензия
 
