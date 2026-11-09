@@ -4,7 +4,7 @@ Agent Skill для философских обсуждений на русско
 
 Исходник: [`skills/philosophy-discussion/SKILL.md`](skills/philosophy-discussion/SKILL.md). Скилл содержит только инструкции, без исполняемого кода, hooks и MCP-серверов.
 
-## Установка в Kimi, Claude и ChatGPT
+## Установка в Kimi, Claude и ChatGPT и других AI агентах
 
 В большинстве случаев достаточно отправить агенту этот промпт:
 
