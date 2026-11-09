@@ -1,0 +1,12 @@
+{
+  "name": "philosophy-discussion",
+  "description": "Философские обсуждения на русском языке",
+  "skills": "./skills/",
+  "homepage": "https://github.com/qetzal/philosophy-discussion-ru",
+  "license": "MIT",
+  "keywords": [
+    "philosophy",
+    "russian",
+    "discussion"
+  ]
+}
