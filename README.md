@@ -79,10 +79,6 @@ curl -fL https://raw.githubusercontent.com/qetzal/philosophy-discussion-ru/main/
 
 Удалить скилл можно через интерфейс управления скиллами или плагинами вашего продукта. При ручной установке достаточно удалить каталог `~/.agents/skills/philosophy-discussion/`.
 
-## Совместимость
-
-Репозиторий использует Agent Skills и Agent Plugins 1.0, а также манифесты для Kimi Code и Claude-compatible marketplaces. Поддержка конкретного способа установки зависит от версии клиента и его настроек.
-
 ## Лицензия
 
 [MIT](LICENSE)
