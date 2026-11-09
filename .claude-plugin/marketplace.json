@@ -1,0 +1,27 @@
+{
+  "name": "philosophy-discussion-ru",
+  "owner": {
+    "name": "Eugene Kaznacheev"
+  },
+  "metadata": {
+    "description": "Философские обсуждения на русском языке"
+  },
+  "plugins": [
+    {
+      "name": "philosophy-discussion",
+      "source": "./",
+      "description": "Философские обсуждения на русском языке",
+      "author": {
+        "name": "Eugene Kaznacheev"
+      },
+      "homepage": "https://github.com/qetzal/philosophy-discussion-ru",
+      "repository": "https://github.com/qetzal/philosophy-discussion-ru",
+      "license": "MIT",
+      "keywords": [
+        "philosophy",
+        "russian",
+        "discussion"
+      ]
+    }
+  ]
+}
