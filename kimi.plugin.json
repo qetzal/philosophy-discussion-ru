@@ -1,12 +1,25 @@
 {
   "name": "philosophy-discussion",
-  "description": "Философские обсуждения на русском языке",
+  "version": "1.0.0",
+  "description": "Глубокий разбор философских идей, аргументов и позиций на русском языке",
+  "author": {
+    "name": "Eugene Kaznacheev"
+  },
   "skills": "./skills/",
   "homepage": "https://github.com/qetzal/philosophy-discussion-ru",
   "license": "MIT",
   "keywords": [
     "philosophy",
     "russian",
-    "discussion"
-  ]
+    "education",
+    "reasoning",
+    "argumentation",
+    "critical-thinking"
+  ],
+  "interface": {
+    "displayName": "Philosophy Discussion",
+    "shortDescription": "Глубокий разбор философских идей и аргументов по-русски",
+    "developerName": "Eugene Kaznacheev",
+    "websiteURL": "https://github.com/qetzal/philosophy-discussion-ru"
+  }
 }

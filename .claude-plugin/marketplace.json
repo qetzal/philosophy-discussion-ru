@@ -1,18 +1,18 @@
 {
   "name": "philosophy-discussion-ru",
+  "description": "Глубокий разбор философских идей, аргументов и позиций на русском языке",
   "owner": {
     "name": "Eugene Kaznacheev"
-  },
-  "metadata": {
-    "description": "Философские обсуждения на русском языке"
   },
   "plugins": [
     {
       "name": "philosophy-discussion",
+      "displayName": "Philosophy Discussion",
       "source": "./",
-      "description": "Философские обсуждения на русском языке",
+      "description": "Глубокий разбор философских идей, аргументов и позиций на русском языке",
       "author": {
-        "name": "Eugene Kaznacheev"
+        "name": "Eugene Kaznacheev",
+        "url": "https://github.com/qetzal"
       },
       "homepage": "https://github.com/qetzal/philosophy-discussion-ru",
       "repository": "https://github.com/qetzal/philosophy-discussion-ru",
@@ -20,7 +20,16 @@
       "keywords": [
         "philosophy",
         "russian",
-        "discussion"
+        "education",
+        "reasoning",
+        "argumentation",
+        "critical-thinking"
+      ],
+      "category": "Education",
+      "tags": [
+        "philosophy",
+        "russian",
+        "reasoning"
       ]
     }
   ]

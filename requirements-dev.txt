@@ -1,0 +1,3 @@
+# Tooling only: the skill itself has no Python dependencies.
+# Keep the version in .skillsaw.yaml in sync with this pin.
+skillsaw==0.23.0

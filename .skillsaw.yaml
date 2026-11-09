@@ -1,0 +1,16 @@
+# skillsaw configuration: https://github.com/stbenjam/skillsaw
+# Keep `version` in sync with requirements-dev.txt.
+version: "0.23.0"
+
+rules:
+  # Описание скилла намеренно только на русском. Эвристики skillsaw ищут
+  # английские маркеры ("Use when ...") и считают значимыми только латинские
+  # слова [a-z0-9], поэтому русское описание получает ложные предупреждения:
+  #   - "Description does not say when to use"
+  #   - "Description only restates the name"
+  # Базовая проверка наличия и непустоты description при этом
+  # остаётся включённой. В репозитории один русскоязычный скилл;
+  # при добавлении англоязычного проверки стоит включить обратно.
+  content-description-routing:
+    require-trigger-phrasing: false
+    flag-name-restatement: false

@@ -2,9 +2,10 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "philosophy-discussion",
   "version": "1.0.0",
-  "description": "Философские обсуждения на русском языке",
+  "description": "Глубокий разбор философских идей, аргументов и позиций на русском языке",
   "author": {
-    "name": "Eugene Kaznacheev"
+    "name": "Eugene Kaznacheev",
+    "url": "https://github.com/qetzal"
   },
   "homepage": "https://github.com/qetzal/philosophy-discussion-ru",
   "repository": "https://github.com/qetzal/philosophy-discussion-ru",
@@ -12,6 +13,9 @@
   "keywords": [
     "philosophy",
     "russian",
-    "discussion"
+    "education",
+    "reasoning",
+    "argumentation",
+    "critical-thinking"
   ]
 }
